@@ -79,7 +79,7 @@ To add images to your blog post upload the image to the `static/uploads/`directo
 - **Home**: `/` - View all blog posts.
 - **Post**: `/<post_title>` - View a single blog post.
 - **New Post**: `/new-post` - Create a new blog post.
-- **n:point**: `/npoint` - Redirect to n:point data page.
+- **Edit Post**: `/edit-post/<int:post_id>` - Edit an existing blog post.
 
 ## License
 
