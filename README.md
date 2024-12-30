@@ -62,14 +62,14 @@ View a deployed version with this code at [blog.timonrieger.de](https://blog.tim
 
 6. Set the required environment variables in a `.env` at the root directory. [Create a json bin first](https://www.npoint.io/):
    - `SECRET_KEY` (your flask secret key)
-   - `n:pOINT` (the id of your npoint bin e.g. https://www.npoint.io/docs/55ec3c86cd78032d2742 > n:pOINT=55ec3c86cd78032d2742)
+   - `n:point` (the id of your npoint bin e.g. https://www.npoint.io/docs/55ec3c86cd78032d2742 > n:point=55ec3c86cd78032d2742)
 
 7. Run the application:
    ```
    python -m main
    ```
 
-8. Write a post, submit the form and paste it in your json bin and rerun the application. Check the schema at [my n:point bin](https://www.npoint.io/docs/55ec3c86cd78032d2742) or view the [schema.json](schema.json)
+8. Write a post, submit the form and paste it in your json bin and rerun the application. Check the schema at [my n:point bin](https://www.npoint.io/docs/55ec3c86cd78032d2742) or view the [schema.json](static/schema.json)
 To add images to your blog post upload the image to the `static/uploads/`directory and use it in the html code of your blog post text with `<img alt=\"\" src=\"https://blog.timonrieger.de/static/uploads/15.png\" style=\"height:100%; width:100%\" />`. Replace the URL with your deployed domain.
 
 > **Warning**: Before submitting the form, copy the source HTML code to avoid data loss in case `pyperclip` fails.
