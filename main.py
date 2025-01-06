@@ -20,7 +20,7 @@ Bootstrap5(app)
 try:
     blog_data = requests.get(f"https://api.npoint.io/{os.getenv("NPOINT")}").json()
 except Exception:
-    with open("static/assets/backup.json", "r") as file:
+    with open("static/assets/content/backup-latest.json", "r") as file:
         blog_data = json.load(file)
 
 @app.route('/')
