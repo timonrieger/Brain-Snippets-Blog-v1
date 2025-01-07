@@ -46,8 +46,13 @@ def show_post(post_title):
     # Find the requested post
     requested_post = [post for post in blog_data if
                       post["title"].lower().replace(' ', '-') == post_title]
+    
+    try:
+        post = requested_post[0]
+    except IndexError:
+        abort(404)
 
-    return render_template("post.html", post=requested_post[0])
+    return render_template("post.html", post=post)
 
 @app.route("/new", methods=["GET", "POST"])
 def add_new_post():
@@ -100,7 +105,26 @@ def dump_and_copy(data: dict):
         pyperclip.copy(json_data)
         flash(f"Post copied to clipboard as json.")
     except pyperclip.PyperclipException:
-        flash("Failed to copy post to clipboard. Please copy manually.")
+        flash("Failed to copy post to clipboard. Please go back and copy manually.")
+
+
+@app.route('/robots.txt')
+def static_from_root():
+    return send_from_directory(app.static_folder, request.path[1:])
+
+
+@app.errorhandler(404)
+def not_found(e):
+    return render_template('404.html'), 404
+
+
+@app.after_request
+def add_header(response):
+    response.headers['Strict-Transport-Security'] = 'max-age=31536000; includeSubDomains; preload'
+    response.headers['X-XSS-Protection'] = '1; mode=block'
+    response.headers['X-Content-Type-Options'] = 'nosniff'
+    response.headers['X-Frame-Options'] = 'DENY'
+    return response
 
 
 if __name__ == "__main__":
