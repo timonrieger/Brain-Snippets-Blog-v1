@@ -1,7 +1,7 @@
 <h2 align="center">Blog Boiler Lite</h2>
 <p align="center">A lightweight Flask-based boilerplate for creating a blog, utilizing n:point for simple data storage.</p>
 <p align="center">
-<img src="https://img.shields.io/badge/status-under_development-blue"/>
+<img src="https://img.shields.io/badge/status-updates%20only-blue"/>
 <img src="https://img.shields.io/github/license/timonrieger/blog-boiler-lite
 ">
 <img src="https://img.shields.io/github/last-commit/timonrieger/blog-boiler-lite
