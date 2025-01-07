@@ -1,9 +1,9 @@
 {% extends "layout.html" %}
 
-{% block title %}Brain Snippets Blog | Timon Rieger{% endblock %}
+{% block title %}Blog Boiler built with Flask and n:point{% endblock %}
 
 {% block description %}
-    Read my latest blog post on Brain Snippets. Here I write about Ideas, Thoughts, Conclusions I'd like to share with you.
+    Read my latest blog post on Blog Boiler. Here I write about Ideas, Thoughts, Conclusions I'd like to share with you.
 {% endblock %}
 
 {% block content %}
@@ -16,7 +16,7 @@
       <div class="row gx-4 gx-lg-5 justify-content-center">
         <div class="col-md-10 col-lg-8 col-xl-7">
           <div class="site-heading">
-            <h1>Brain Snippets</h1>
+            <h1>Blog Boiler</h1>
             <span class="subheading">Ideas, Thoughts and Conclusions I'd like to share with you.</span>
           </div>
         </div>
@@ -36,7 +36,7 @@
           </a>
           <p class="post-meta">
             Posted by
-            <a href="#">{{ post.author }}</a>
+            <a href="{{ url_for('show_author', author=post.author|lower|replace(' ', '-'))}}">{{ post.author }}</a>
             on {{post.date}}
           </p>
 
