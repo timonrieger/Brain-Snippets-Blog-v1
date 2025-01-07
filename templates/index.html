@@ -41,7 +41,7 @@
           </a>
           <p class="post-meta">
             Posted by
-            <a href="https://timonrieger.de?utm_source=brainsnippets-blog">{{ post.author }}</a>
+            <a href="#">{{ post.author }}</a>
             on {{post.date}}
           </p>
 
@@ -51,8 +51,13 @@
         {% endfor %}
 
         <!-- Pager-->
-        <div class="d-flex justify-content-end mb-4">
-          <a class="btn btn-secondary text-uppercase" aria-disabled="true" href="{{ url_for('get_all_posts', page=page + 1 ) }}" disabled>Older Posts →</a>
+        <div class="d-flex justify-content-end mb-4" style="gap: 10px;">
+          {% if page > 1 %}
+            <a class="btn btn-secondary text-uppercase" href="{{ url_for('home', page=page - 1 ) }}">Newer Posts</a>
+          {% endif %}
+          {% if page < max_page %}
+            <a class="btn btn-secondary text-uppercase" href="{{ url_for('home', page=page + 1 ) }}">Older Posts</a>
+          {% endif %}
         </div>
       </div>
     </div>

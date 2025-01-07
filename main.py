@@ -26,15 +26,16 @@ except Exception:
 @app.route('/')
 def get_all_posts():
     page = int(request.args.get("page", 1))
-    start = (page - 1) * 10
-    end = page * 10
+    posts_per_page = 10
+    start = (page - 1) * posts_per_page
+    end = page * posts_per_page
     posts = blog_data[start:end]
-    if not posts:
-        page = 1
-        start = 0
-        end = 10
-        posts = blog_data[start:end]
-    return render_template("index.html", all_posts=posts, page=page)
+    max_page = (len(blog_data) + posts_per_page - 1) // posts_per_page 
+
+    if page < 1 or page > max_page:
+        return redirect(url_for("home"))
+
+    return render_template("index.html", all_posts=posts, page=page, max_page=max_page)
 
 
 @app.route("/<post_title>", methods=["GET", "POST"])
