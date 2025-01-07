@@ -48,7 +48,7 @@ def show_post(post_title):
 
     return render_template("post.html", post=requested_post[0])
 
-@app.route("/new-post", methods=["GET", "POST"])
+@app.route("/new", methods=["GET", "POST"])
 def add_new_post():
     form = CreatePostForm()
     if form.validate_on_submit():
@@ -68,7 +68,7 @@ def add_new_post():
         return redirect(url_for("get_all_posts"))
     return render_template("make-post.html", form=form)
 
-@app.route("/edit-post/<int:post_id>", methods=["GET", "POST"])
+@app.route("/edit/<int:post_id>", methods=["GET", "POST"])
 def edit_post(post_id):
     post = [post for post in blog_data if post["id"] == post_id][0]
     form = CreatePostForm(
