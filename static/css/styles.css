@@ -10848,8 +10848,23 @@ header.masthead .post-heading .meta a {
   font-size:13px;
 }
 
-/* Flash Message Styling */
+#flash-container {
+  position: fixed;
+  bottom: 1em;
+  right: 1em;
+  width: 20em;
+}
+
+.exit-btn {
+  size: 1em;
+  position: absolute;
+  top: 0.1em;
+  right: 0.1em;
+  background-color: transparent;
+  border: none;
+}
+
 .flash {
-  color: #ee6f57;
   text-align: center;
+  margin: 2em;
 }
