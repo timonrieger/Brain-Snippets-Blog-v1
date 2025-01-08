@@ -1,4 +1,4 @@
-<h2 align="center">Blog Boiler Lite</h2>
+<h2 align="center">Blog Boiler Lite Lite</h2>
 <p align="center">A lightweight Flask-based boilerplate for creating a blog, utilizing n:point for simple data storage.</p>
 <p align="center">
 <img src="https://img.shields.io/badge/status-updates%20only-blue"/>
