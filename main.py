@@ -40,7 +40,7 @@ def home():
     start = (page - 1) * posts_per_page
     end = page * posts_per_page
     posts = blog_data[start:end]
-    max_page = (len(blog_data) + posts_per_page - 1) // posts_per_page
+    max_page = max(1, (len(blog_data) + posts_per_page - 1) // posts_per_page)
 
     if page < 1 or page > max_page:
         return redirect(url_for("home"))
@@ -147,4 +147,4 @@ def add_header(response):
 
 
 if __name__ == "__main__":
-    app.run(debug=False, port=5000)
+    app.run(debug=False)
