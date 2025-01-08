@@ -32,7 +32,7 @@
 
 ## Intention
 
-This project is a simple blog implementation, designed for users who prefer a straightforward solution. If you require additional features like user management, an admin interface, or database storage, consider checking out [this project](https://github.com/timonrieger/brain-snippets-advanced.git).
+This project is a simple blog implementation, designed for users who prefer a straightforward solution. If you require additional features like user management, an admin interface, or database storage, consider checking out [this project](https://github.com/timonrieger/blog-boiler-pro.git).
 
 ## Features
 
@@ -140,7 +140,7 @@ This project is a simple blog implementation, designed for users who prefer a st
    - `static/assets/img/` (for images)
    - `static/assets/favicon.ico` (for the site favicon)
 
-4. **Modify SEO contents**
+4. **Modify SEO contents**  
    Replace the contents at the top of each file in the `templates/`
    directory to reflect your content.
 
