@@ -17,6 +17,7 @@ import requests
 import json
 import pyperclip
 import dotenv
+from jinja2.exceptions import TemplateNotFound
 
 dotenv.load_dotenv()
 
@@ -89,7 +90,11 @@ def new_post():
 
 @app.route("/edit/<int:post_id>", methods=["GET", "POST"])
 def edit_post(post_id):
-    post = [post for post in blog_data if post["id"] == post_id][0]
+    requested_post = [post for post in blog_data if post["id"] == post_id]
+    try:
+        post = requested_post[0]
+    except IndexError:
+        abort(404)
     form = CreatePostForm(
         title=post["title"],
         subtitle=post["subtitle"],
@@ -112,7 +117,10 @@ def edit_post(post_id):
 
 @app.route("/author/<author>")
 def show_author(author):
-    return render_template(f"authors/{author}.html")
+    try:
+        return render_template(f"authors/{author}.html")
+    except TemplateNotFound:
+        abort(404)
 
 
 def dump_and_copy(data: dict):
