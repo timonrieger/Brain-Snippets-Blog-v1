@@ -11,27 +11,31 @@ from flask import (
 )
 from flask_bootstrap import Bootstrap5
 from flask_ckeditor import CKEditor
-from forms import CreatePostForm
-import os
+from src.forms import CreatePostForm
+from src.config import ENABLE_TRANSLATIONS, DISPLAY_READING_TIME
+from src.constants import SECRET_KEY, NPOINT
+from src.utils import calculate_reading_time
 import requests
 import json
 import pyperclip
-import dotenv
 from jinja2.exceptions import TemplateNotFound
 
-dotenv.load_dotenv()
-
 app = Flask(__name__)
-app.secret_key = os.getenv("SECRET_KEY")
+app.secret_key = SECRET_KEY
 
 ckeditor = CKEditor(app)
 Bootstrap5(app)
 
 try:
-    blog_data = requests.get(f"https://api.npoint.io/{os.getenv("NPOINT")}").json()
+    blog_data = requests.get(f"https://api.npoint.io/{NPOINT}").json()
 except Exception:
     with open("static/assets/content/backup-latest.json", "r") as file:
         blog_data = json.load(file)
+
+
+@app.context_processor
+def global_vars():
+    return dict(current_url=request.url_root, ENABLE_TRANSLATIONS=ENABLE_TRANSLATIONS, DISPLAY_READING_TIME=DISPLAY_READING_TIME)
 
 
 @app.route("/")
@@ -64,7 +68,7 @@ def show_post(post_title):
     except IndexError:
         abort(404)
 
-    return render_template("post.html", post=post)
+    return render_template("post.html", post=post, calculate_reading_time=calculate_reading_time)
 
 
 @app.route("/new", methods=["GET", "POST"])
@@ -155,4 +159,4 @@ def add_header(response):
 
 
 if __name__ == "__main__":
-    app.run(debug=False)
+    app.run(debug=False, port=5002)

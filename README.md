@@ -41,7 +41,7 @@ This project is a simple blog implementation, designed for users who prefer a st
 - User-Friendly Text Editor: A simple and intuitive editor for creating and editing blog posts provided by CKEditor 4.
 - Data Storage via n:point: All blog content is stored and managed using n:point's json bin functionality.
 - Responsive Design with Bootstrap: The site automatically adjusts to various screen sizes and devices.
-- Google Translate Support: Easily translate posts from English to other languages. To disable, remove the script in `/templates/post.html`. To change the language, search for `pageLanguage: 'en'` and replace it.
+- Google Translate Support: Allow posts to be translated from English to other languages. To disable, set the `ENABLE_TRANSLATIONS=False` in `src/config.py`.
 - Collaboration Support: Share your n:point credentials with co-authors to collaborate on blog posts.
 - Secure, SEO optimized and Fast according to [Checkbot](https://checkbot.io/)
 - Customizable _About_ page for each author
@@ -53,6 +53,8 @@ This project is a simple blog implementation, designed for users who prefer a st
 - No commenting system
 - Manual content saving
 - No extension or plugin system
+- Pages written English (can be translated manually, though)
+- No analytics by default (which I regard as positive)
 
 ## Setup
 
