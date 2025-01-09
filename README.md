@@ -32,7 +32,7 @@
 
 ## Intention
 
-This project is a simple blog implementation, designed for users who prefer a straightforward solution. If you require additional features like user management, an admin interface, or database storage, consider checking out [this project](https://github.com/timonrieger/blog-boiler-pro.git).
+This project is a simple blog implementation, designed for users who prefer a straightforward solution. If you require additional features like user management, an admin interface, or database storage, consider checking out [the pro version](https://github.com/timonrieger/blog-boiler-pro.git).
 
 ## Features
 
