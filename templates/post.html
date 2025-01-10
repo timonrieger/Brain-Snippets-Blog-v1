@@ -22,7 +22,7 @@
             Posted by
               <span translate="no"><a href="{{ url_for('show_author', author=post.author|lower|replace(' ', '-'))}}">{{ post.author }}</a></span>
               on {{ post.date }}
-              {% if DISPLAY_READING_TIME %} - 
+              {% if DISPLAY_READING_TIME %} &#124;
                 {{ calculate_reading_time(post.body|safe) }} minutes to read
             {% endif %}
           </span>
