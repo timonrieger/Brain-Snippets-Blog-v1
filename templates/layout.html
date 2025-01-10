@@ -22,7 +22,7 @@
       href="{{ url_for('static', filename='assets/favicon.ico') }}"
     />
     <!-- Font Awesome icons (free version)-->
-    <script
+    <script async
       src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"
       crossorigin="anonymous"
     ></script>
@@ -42,6 +42,10 @@
       href="{{ url_for('static', filename='css/styles.css') }}"
       rel="stylesheet"
     />
+    <!-- Canonical URL -->
+    {% if request.path != '/' %}
+        <link rel="canonical" href="{{ url_for('home') }}">
+    {% endif %}
     {% endblock %}
   </head>
   <body>   
