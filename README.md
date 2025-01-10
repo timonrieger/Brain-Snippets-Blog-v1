@@ -36,15 +36,15 @@ This project is a simple blog implementation, designed for users who prefer a st
 
 ## Features
 
-- Create, Read, and Edit Blog Posts
-- Pagination: View posts with pagination for better navigation.
-- User-Friendly Text Editor: A simple and intuitive editor for creating and editing blog posts provided by CKEditor 4.
-- Data Storage via n:point: All blog content is stored and managed using n:point's json bin functionality.
-- Responsive Design with Bootstrap: The site automatically adjusts to various screen sizes and devices.
-- Google Translate Support: Allow posts to be translated from English to other languages. To disable, set the `ENABLE_TRANSLATIONS=False` in `src/config.py`.
-- Collaboration Support: Share your n:point credentials with co-authors to collaborate on blog posts.
-- Secure, SEO optimized and Fast according to [Checkbot](https://checkbot.io/)
-- Customizable _About_ page for each author
+- **Create, Edit, Read Blog Posts:**
+- **Pagination:** View posts with pagination for better navigation and user experience.
+- **User-Friendly Text Editor:** A simple and intuitive editor for creating and editing blog posts provided by CKEditor 4.
+- **Data Storage with n:point:** All blog content is stored and managed using n:point's json bin functionality.
+- **Responsive Design with Bootstrap:** The site automatically adjusts to various screen sizes and devices for seamless usability.
+- **Google Translate Support:** Allow posts to be translated from your writing language to other languages. To disable, set the `ENABLE_TRANSLATIONS=False` in `src/config.py`.
+- **Collaboration Support:** Share your n:point credentials with co-authors to collaborate on blog posts.
+- **Secure, SEO Optimized, and Fast:** Optimized for performance and search engine visibility according to [Checkbot](https://checkbot.io/).
+- **Customizable About Page:** Personalize an "About" page for each author to share their story or expertise.
 
 ## Limitations
 
@@ -90,8 +90,9 @@ This project is a simple blog implementation, designed for users who prefer a st
 
 6. Set the required **environment variables** in a `.env` at the root directory. 
    [Clone my json bin first](https://api.npoint.io/c2cd65fcb9eb06f444de) and find the URL of your bin at the bottom of the page.
-   - `SECRET_KEY` (a flask secret key)
-   - `NPOINT` (the id of your npoint bin e.g. https://api.npoint.io/c2cd65fcb9eb06f444de > NPOINT=c2cd65fcb9eb06f444de)
+   ```
+   SECRET_KEY=yoursecretkey
+   NPOINT=yournpointid # e.g. for https://api.npoint.io/c2cd65fcb9eb06f444de it's c2cd65fcb9eb06f444de
 
 7. **Run the application**
    ```
@@ -129,7 +130,7 @@ This project is a simple blog implementation, designed for users who prefer a st
 ## Configuration
 
 1. **Add Images**  
-   Add the images you want to use in the `static/uploads/` directory with your image files. 
+   Add the images you want to use in the `static/uploads/` directory with your image files (I personally name the files with [autoincrementing numbers](https://github.com/timonrieger/blog/tree/main/static/uploads)). 
 
 2. **Backup JSON Content**  
    After modifying the `n:point` JSON bin, it's highly recommended to back up the JSON content stored in `static/assets/content/backup-latest.json`. 
